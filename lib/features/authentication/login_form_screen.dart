@@ -20,9 +20,13 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
     if (_formkey.currentState != null) {
       if (_formkey.currentState!.validate()) {
         _formkey.currentState!.save();
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => const InterestsScreen(),
-        ));
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(
+              builder: (context) => const InterestsScreen(),
+            ), (route) {
+          // false 리턴할 경우 뒤로가기 라우팅이 안됨
+          return false;
+        });
       }
     }
   }
