@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/main_navigation/widgets/nav_tab.dart';
-import 'package:tiktok_clone/features/main_navigation/stf_screen.dart';
 import 'package:tiktok_clone/features/main_navigation/widgets/post_video_button.dart';
+import 'package:tiktok_clone/features/videos/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -37,10 +37,11 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     print('im built!');
     return Scaffold(
       body: Stack(children: [
-        Offstage(offstage: _selectedIndex != 0, child: const StfScreen()),
-        Offstage(offstage: _selectedIndex != 1, child: const StfScreen()),
-        Offstage(offstage: _selectedIndex != 3, child: const StfScreen()),
-        Offstage(offstage: _selectedIndex != 4, child: const StfScreen())
+        Offstage(
+            offstage: _selectedIndex != 0, child: const VideoTimelineScreen()),
+        Offstage(offstage: _selectedIndex != 1, child: Container()),
+        Offstage(offstage: _selectedIndex != 3, child: Container()),
+        Offstage(offstage: _selectedIndex != 4, child: Container())
       ]),
       bottomNavigationBar: BottomAppBar(
         color: Colors.black,
